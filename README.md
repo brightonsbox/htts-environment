@@ -2,6 +2,7 @@
 
 Terraform configuration for the hotterthanthesahara.com website.
 
+
 Using CircleCI pipeline to apply the Terraform changes.
 
 ## How to deploy
