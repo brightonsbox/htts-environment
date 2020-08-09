@@ -50,7 +50,6 @@ AWS credentials created earlier:
 
 Add the following environment variables:
 
- * `APP_BUCKET` - e.g. www.hotterthanthesahara.com
  * `AWS_ACCESS_KEY_ID`
  * `AWS_SECRET_ACCESS_KEY`
  * `TF_API_TOKEN` - the Terraform API token recorded earlier
