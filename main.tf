@@ -13,6 +13,11 @@ provider "aws" {
   region = var.region
 }
 
+provider "aws" {
+  alias = "acm"
+  region = "us-east-1"
+}
+
 provider "template" {
 }
 
@@ -55,7 +60,7 @@ resource "aws_s3_bucket" "htts" {
 }
 
 resource "aws_acm_certificate" "cert" {
-  provider = "aws.us-east-1"
+  provider = aws.acm
   domain_name = var.domain
   validation_method = "EMAIL"
   subject_alternative_names = [var.bucket]
@@ -63,7 +68,8 @@ resource "aws_acm_certificate" "cert" {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
 
-  provider = "aws.us-east-1"
+  provider = aws.acm
+
   origin {
     custom_origin_config {
       http_port              = "80"
